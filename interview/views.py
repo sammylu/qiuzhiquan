@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from django.views.generic import View   # 导入view的基类
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger  # 导入分页库的类
+<<<<<<< HEAD
 from django.db.models import Q  # 导入Q或逻辑模块搜索
 from django.contrib.auth.hashers import make_password  # 导入密码加密模块
 from django.contrib.auth import logout, login, authenticate  # 导入表单验证莫快
@@ -9,6 +10,10 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from forms import RegForm, LoginForm  # 导入用户注册和登录模块
 from models import Interview, Author, User
+=======
+from models import Interview, Author  # 导入模板interwiew类
+from django.db.models import Q  # 导入Q或逻辑模块搜索
+>>>>>>> 874d5d4bd8eeda6b8d03da9f03b85159ab7b67d2
 # Create your views here.
 
 
@@ -17,8 +22,15 @@ class InterListview(View):
     名企面经列表类
     """
     # 取出所有面经
+<<<<<<< HEAD
     def get(self, request):
         all_interviews = Interview.objects.all()  # 获取所有INTERVIEW对象
+=======
+
+    def get(self, request):
+        all_interviews = Interview.objects.all()  # 获取所有INTERVIEW对象
+
+>>>>>>> 874d5d4bd8eeda6b8d03da9f03b85159ab7b67d2
     # 搜索模块
         keywords = request.GET.get('keywords', "")  # 获取keywords信息,没有设为空
         if keywords:
@@ -85,6 +97,7 @@ class InterDetailView(View):
             "interview": interview,  # 传递模板变量给interview 给模板文件interview_detail
             "recommended_interviews": recommended_interviews,
             "recommended_interviews2": recommended_interviews2,
+<<<<<<< HEAD
         })
 
 
@@ -133,3 +146,6 @@ class LoginView(View):
         else:
             return render(request, 'login.html', {"error": '登录验证失败'})
 
+=======
+        })
+>>>>>>> 874d5d4bd8eeda6b8d03da9f03b85159ab7b67d2
