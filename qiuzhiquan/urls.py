@@ -31,11 +31,9 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),  # 管理媒体文件路径映射和处理模块
     url(r'^interlist/$', InterListview.as_view(), name="interlist"),  # 名企面经的url映射,name为别名映射
     url(r'^interdetail/(?P<interview_id>\d+)/$', InterDetailView.as_view(), name="interdetail"),  # 面经详情映射
-
     url(r'^ueditor/', include('DjangoUeditor.urls')),  # 副文本映射
     url(r'register/$', RegView.as_view(), name="register"),  # 用户注册映射
     url(r'login/$', LoginView.as_view(), name="login"),  # 用户登录映射
-
     url(r'^ueditor/', include('DjangoUeditor.urls')),  # 增加url映射
 
 ]
